@@ -1,0 +1,225 @@
+//1)
+fun isPalindrome(text: String): Boolean {
+    val sb = StringBuilder(text)
+
+    val reverseStr = sb.reverse().toString()
+
+    
+    return text.equals(reverseStr, ignoreCase = true)
+}
+
+fun main() {
+    
+    if (isPalindrome("racecar")) {
+        println("it's a palindrome")
+    } else {
+        println("it's not a palindrome")
+    }
+
+
+    if (isPalindrome("car")) {
+        println("it's a palindrome")
+    } else {
+        println("it's not a palindrome")
+    } 
+  
+  
+}
+
+
+
+
+
+//2)
+fun main() {  
+
+  println(minSplit(12))
+  println(minSplit(57))
+  println(minSplit(134))
+
+}
+
+
+fun minSplit(amount: Int): Int {
+    
+    var list = mutableListOf(1, 5, 10, 20, 50)
+    var size = list.size - 1
+    var coins = amount
+    var cap = 0
+    while(size >= 0){
+        
+        while(coins >= list[size]){
+            coins = coins - list[size]
+          	cap = cap + 1
+        }
+        size = size -1
+    } 
+   return cap 
+}
+
+
+
+
+
+
+//3)
+fun main() {
+    
+    val x = arrayOf(5,2,4,73,5,1)
+    print("minimaluri mteli ricxvia: ")
+    println(notContains(x))
+
+
+}
+
+
+fun notContains(arr: Array<Int>): Int {
+    var size = arr.size 
+    arr.sort()
+    var num = 1
+   for (i in 0..size){ 
+   
+        for (i in arr){
+            
+            if (i>=0 && i == num){
+            	
+            }else return num
+            
+            num++
+        }
+    }
+   
+   return 0
+}
+
+
+
+
+
+
+//4)
+fun main() {
+    
+    var sequence = "(()())"
+    var sequence1 = "())()"
+	
+    print("Case #1: ")
+    if(isProperly(sequence)){
+        print("Correctly placed")
+    }else print("Not correctly placed")
+    
+    println()
+    println()
+    
+    print("case #2: ")
+    if(isProperly(sequence1)){
+        print("Correctly placed")
+    }else print("Not correctly placed")
+
+	
+
+}
+
+fun isProperly(sequence: String): Boolean { 
+  
+    var count = 0
+    
+    for(i in sequence){
+        if(i == '('){
+            count++
+        }
+        if(i == ')'){
+            count--
+        }
+        
+    }
+    
+    if(count < 0){
+    	return false
+    }
+    
+    if(count == 0){
+        return true
+    }
+    
+    return false
+}
+
+
+
+
+
+
+
+
+//5)
+fun main() {
+    print("Amount of variants: ")
+    var stears = 5
+    println(countVariants(stears))
+
+
+}
+
+fun fib(n: Int): Int { 
+   if (n <= 1){
+    	return n
+    } 
+
+    return fib(n -1) + fib(n - 2) // here is used fibonacci number with recursion
+}
+
+
+
+fun countVariants(stearsCount: Int): Int {
+    
+   return fib(stearsCount + 1)
+
+}
+
+
+
+
+
+
+
+
+//6)
+fun main() {
+    var arr: IntArray = intArrayOf(1, 2, 3, 4, 5)
+    val index = 2
+ 	println(arr.contentToString())
+    
+    arr = remove(arr, index)
+ 
+    println(arr.contentToString())        
+}
+
+
+
+fun remove(arr: IntArray, index: Int): IntArray {
+    if (index < 0 || index >= arr.size) {
+        return arr
+    }
+    
+    val result = IntArray(arr.size - 1)
+    
+    for (i in 0..index - 1) {
+        result[i] = arr[i]
+    }
+    for (i in index until arr.size - 1) {
+        result[i] = arr[i + 1]
+    }
+    return result
+}
+
+
+
+
+
+
+
+
+
+
+
